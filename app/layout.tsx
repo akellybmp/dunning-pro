@@ -1,6 +1,7 @@
-import { WhopApp } from "@whop/react/components";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@/lib/theme-provider";
+import { Sidebar } from "@/components/sidebar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,7 +29,14 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<WhopApp>{children}</WhopApp>
+				<ThemeProvider defaultTheme="light" storageKey="dunning-theme">
+					<div className="flex h-screen bg-gray-50 dark:bg-gray-900">
+						<Sidebar />
+						<main className="flex-1 lg:ml-0 overflow-auto pt-16 lg:pt-0">
+							{children}
+						</main>
+					</div>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

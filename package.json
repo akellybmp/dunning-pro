@@ -2,19 +2,33 @@
 	"name": "whop-nextjs-app-template",
 	"version": "0.1.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"dev": "whop-proxy --command 'next dev --turbopack'",
+		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"setup": "node scripts/setup-production.js",
+		"setup-db": "node scripts/setup-database.js",
+		"quick-setup": "node scripts/quick-setup.js",
+		"test-connection": "node scripts/test-connection.js",
+		"fix-ipv6": "node scripts/fix-ipv6-connection.js",
+		"simple-ipv4": "node scripts/simple-ipv4-fix.js",
+		"test-email": "node scripts/test-email.js"
 	},
 	"dependencies": {
+		"@neondatabase/serverless": "^1.0.2",
 		"@vercel/functions": "^2.0.3",
 		"@whop/api": "^0.0.50",
 		"@whop/react": "0.2.36",
+		"date-fns": "^4.1.0",
+		"dotenv": "^17.2.3",
+		"lucide-react": "^0.546.0",
 		"next": "15.3.2",
+		"pg": "^8.16.3",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"react-dom": "^19.0.0",
+		"resend": "^6.2.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",

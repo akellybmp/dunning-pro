@@ -1,0 +1,155 @@
+DunningPro - Payment Recovery Management System
+
+🎯 PROJECT OVERVIEW
+
+DunningPro is a comprehensive payment recovery management system built for Whop communities. It's designed to help businesses automatically recover failed payments through intelligent email sequences and user-friendly management interfaces.
+
+🏗️ TECHNICAL ARCHITECTURE
+
+Frontend Stack:
+- Next.js 15 with App Router
+- React 19 with TypeScript
+- Tailwind CSS 4 for styling
+- Lucide React for icons
+- Modern design system with dark mode support
+
+Backend & Database:
+- Neon Database (PostgreSQL) for data persistence
+- Resend for email delivery
+- Whop SDK for community integration
+- RESTful API routes for all operations
+
+Key Dependencies:
+- @whop/api & @whop/react - Whop platform integration
+- @neondatabase/serverless - Database connectivity
+- resend - Email service
+- date-fns - Date manipulation
+- lucide-react - Icon library
+
+🎨 DESIGN SYSTEM
+
+The project includes a comprehensive design system with:
+- Professional color palette (brand green, success, warning, error)
+- Accessible typography with Inter font
+- Consistent spacing and component patterns
+- Dark mode support throughout
+- Mobile-responsive design
+- WCAG AA compliance for accessibility
+
+📊 CORE FEATURES
+
+1. Payment Management Dashboard
+- Real-time payment tracking with status filtering
+- Bulk operations (enable/disable auto-emails)
+- Search functionality by email or membership ID
+- Status indicators (Active, Recovered, Cancelled)
+- Payment details with comprehensive metadata
+
+2. Email Recovery System
+- Automated email sequences based on failure timing
+- Customizable templates with variable substitution
+- Email tracking and delivery status
+- Template management (CRUD operations)
+- Sender configuration settings
+
+3. Analytics & Reporting
+- Recovery statistics and success rates
+- Revenue tracking from recovered payments
+- Email performance metrics
+- Real-time dashboard with animated cards
+
+4. Database Schema
+Comprehensive PostgreSQL schema with:
+- failed_payments - Core payment tracking
+- email_sequences - Email automation
+- email_rules - Template management
+- sent_emails - Delivery tracking
+- recovery_stats - Analytics data
+- email_settings - Configuration
+
+🚀 PRODUCTION FEATURES
+
+Ready for Production:
+✅ Environment validation and error handling
+✅ Database connection testing
+✅ Email service integration
+✅ Sample data creation scripts
+✅ Webhook support for real-time updates
+✅ Security best practices implemented
+
+Setup Scripts:
+- npm run setup - Full environment validation
+- npm run setup-db - Database schema creation
+- npm run test-email - Email functionality testing
+- npm run quick-setup - Rapid deployment setup
+
+📁 PROJECT STRUCTURE
+
+dunning-pro/
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   │   ├── emails/        # Email management
+│   │   ├── payments/      # Payment operations
+│   │   ├── stats/         # Analytics
+│   │   └── webhooks/      # Whop webhooks
+│   ├── dashboard/         # Analytics dashboard
+│   ├── email-settings/   # Template management
+│   └── page.tsx          # Main payments interface
+├── components/            # Reusable UI components
+├── lib/                   # Core utilities
+│   ├── design-system.ts  # Design tokens
+│   ├── email-service.ts   # Email functionality
+│   ├── neon.ts           # Database client
+│   └── whop-sdk.ts       # Whop integration
+├── scripts/              # Setup and utility scripts
+└── Documentation files    # Comprehensive guides
+
+🔧 KEY INTEGRATIONS
+
+Whop Platform:
+- App authentication and user management
+- Company-specific data isolation
+- Webhook handlers for payment events
+- Membership integration for user context
+
+Email Service (Resend):
+- Transactional emails for payment recovery
+- Template management with variable substitution
+- Delivery tracking and status monitoring
+- Sender configuration and branding
+
+Database (Neon):
+- PostgreSQL with full ACID compliance
+- Automatic scaling and connection pooling
+- Real-time queries for live data
+- Comprehensive indexing for performance
+
+📋 DOCUMENTATION
+
+The project includes extensive documentation:
+- DESIGN_SYSTEM.md - Complete design guidelines
+- PRODUCTION_READY.md - Deployment instructions
+- SETUP_INSTRUCTIONS.md - Development setup
+- TROUBLESHOOTING.md - Common issues and solutions
+- MIGRATION_GUIDE.md - Database migration steps
+
+🎯 USE CASES
+
+This system is perfect for:
+- SaaS businesses with recurring payments
+- Whop communities with membership fees
+- Subscription services needing payment recovery
+- E-commerce platforms with failed payment management
+- Any business with recurring billing
+
+🚀 DEPLOYMENT READY
+
+The application is production-ready with:
+- Environment variable validation
+- Database migration scripts
+- Error handling and logging
+- Performance optimizations
+- Security best practices
+- Comprehensive testing utilities
+
+This is a sophisticated, enterprise-grade payment recovery system that combines modern web technologies with practical business needs, specifically designed for the Whop ecosystem but adaptable to other platforms.

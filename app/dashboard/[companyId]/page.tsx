@@ -6,6 +6,17 @@ export default async function DashboardPage({
 }: {
 	params: Promise<{ companyId: string }>;
 }) {
+	// Check if whopSdk is available
+	if (!whopSdk) {
+		return (
+			<div className="flex justify-center items-center h-screen px-8">
+				<h1 className="text-xl text-red-600">
+					Whop SDK not configured. Please set up your environment variables.
+				</h1>
+			</div>
+		);
+	}
+
 	// The headers contains the user token
 	const headersList = await headers();
 
