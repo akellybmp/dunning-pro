@@ -428,7 +428,7 @@ export default function EmailSettings() {
                 rows={8}
                 value={currentTemplate.body}
                 onChange={(e) => setCurrentTemplate({ ...currentTemplate, body: e.target.value })}
-                placeholder="e.g., Hi {{userName}},\n\nYour recent payment of {{amount}} for {{productName}} failed. Please update your payment method using this link: {{recoveryLink}}\n\nThanks,\nDunningPro Team"
+                placeholder="Email here..."
                 className="mt-1 block w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-brand-500 focus:border-brand-500"
               ></textarea>
             </div>
