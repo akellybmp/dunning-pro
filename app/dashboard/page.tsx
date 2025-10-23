@@ -78,7 +78,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                Payment Recovery Dashboard
+                Payment Recovery Dashboard 🚀
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300">
                 Monitor and manage failed payment recovery for your Whop community
