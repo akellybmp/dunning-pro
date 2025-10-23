@@ -347,7 +347,7 @@ export default function EmailSettings() {
                 </button>
                 <button
                   onClick={() => handleDeleteRule(rule.id)}
-                  className="p-2 rounded-full text-gray-500 hover:text-error-600 dark:text-gray-400 dark:hover:text-error-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  className="p-2 rounded-full text-gray-500 hover:text-red-600 dark:text-gray-400 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors cursor-pointer"
                   title="Delete Rule"
                 >
                   <Trash2 className="h-5 w-5" />
