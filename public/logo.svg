@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Payment Card Background -->
+  <rect x="4" y="8" width="24" height="16" rx="3" fill="#1e3a8a" stroke="#1e3a8a" stroke-width="0.5"/>
+  
+  <!-- Card Details -->
+  <!-- Card Number Lines -->
+  <rect x="6" y="12" width="8" height="1.5" rx="0.75" fill="#94a3b8"/>
+  <rect x="6" y="14" width="6" height="1.5" rx="0.75" fill="#94a3b8"/>
+  
+  <!-- Chip -->
+  <rect x="20" y="18" width="6" height="4" rx="1" fill="#94a3b8"/>
+  
+  <!-- Lightning Bolt -->
+  <path d="M22 6L26 14L24 14L25 20L18 10L20 10L19 6L22 6Z" fill="#f97316"/>
+</svg>
