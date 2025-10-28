@@ -68,21 +68,28 @@ export default function PaymentsSettings() {
       console.log('🔄 Fetching payments...');
       setLoading(true);
       setError(null); // Clear previous errors
-      
+
+      // Get companyId from environment variable (set by Whop when app is loaded)
+      const companyId = process.env.NEXT_PUBLIC_WHOP_COMPANY_ID;
+
+      if (!companyId) {
+        throw new Error('Company ID not configured. Please ensure NEXT_PUBLIC_WHOP_COMPANY_ID is set.');
+      }
+
       const params = new URLSearchParams({
-        companyId: 'default',
+        companyId,
         status: statusFilter,
         search: searchTerm,
         page: '1',
         limit: '50'
       });
 
-      console.log('📡 Making API call to /api/payments with params:', params.toString());
-      const response = await fetch(`/api/payments?${params}`);
-      console.log('📡 Payments API response status:', response.status);
-      
+      console.log('📡 Making API call to /api/whop-memberships with params:', params.toString());
+      const response = await fetch(`/api/whop-memberships?${params}`);
+      console.log('📡 Whop Memberships API response status:', response.status);
+
       const data = await response.json();
-      console.log('📡 Payments API response data:', data);
+      console.log('📡 Whop Memberships API response data:', data);
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to fetch payments');
@@ -94,10 +101,12 @@ export default function PaymentsSettings() {
       console.error('❌ Error fetching payments:', err);
       const errorMessage = err instanceof Error ? err.message : 'Failed to fetch payments';
       setError(errorMessage);
-      
-      // If it's a database connection error, provide helpful guidance
-      if (errorMessage.includes('Database not configured') || errorMessage.includes('Failed to fetch payments')) {
-        setError('Database connection failed. Please check your Supabase configuration and run the database setup script.');
+
+      // Provide helpful error message
+      if (errorMessage.includes('Company ID not configured')) {
+        setError('Company ID not configured. Please ensure your Whop app environment variables are set correctly.');
+      } else if (errorMessage.includes('Whop SDK not configured')) {
+        setError('Whop SDK not configured. Please set up your WHOP_API_KEY and NEXT_PUBLIC_WHOP_APP_ID environment variables.');
       }
     } finally {
       setLoading(false);

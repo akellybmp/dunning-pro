@@ -53,7 +53,11 @@ export default function EmailSettings() {
   const fetchEmailRules = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/emails/templates?companyId=default');
+
+      // Get companyId from environment variable (set by Whop when app is loaded)
+      const companyId = process.env.NEXT_PUBLIC_WHOP_COMPANY_ID || 'default';
+
+      const response = await fetch(`/api/emails/templates?companyId=${companyId}`);
       const data = await response.json();
 
       if (!response.ok) {

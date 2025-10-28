@@ -32,9 +32,16 @@ export default function Dashboard() {
   async function loadData() {
     try {
       setLoading(true);
-      
-      // Fetch stats from API
-      const statsResponse = await fetch('/api/stats?companyId=default');
+
+      // Get companyId from environment variable (set by Whop when app is loaded)
+      const companyId = process.env.NEXT_PUBLIC_WHOP_COMPANY_ID;
+
+      if (!companyId) {
+        throw new Error('Company ID not configured. Please ensure NEXT_PUBLIC_WHOP_COMPANY_ID is set.');
+      }
+
+      // Fetch stats from API with actual company ID
+      const statsResponse = await fetch(`/api/stats?companyId=${companyId}`);
       const statsData = await statsResponse.json();
 
       if (!statsResponse.ok) {
@@ -52,7 +59,7 @@ export default function Dashboard() {
       setRecentPayments(statsData.recentPayments || []);
     } catch (error) {
       console.error('Error loading dashboard data:', error);
-      // Fallback to mock data on error
+      // Show error message instead of fallback data
       setStats({
         totalFailed: 0,
         totalRecovered: 0,
